@@ -1,6 +1,7 @@
 site_name: Intro to GIS Survival Guide
 nav:
     - Home: index.md
+    - Accessing GIS outside of class: apporto.md
     - Getting Started: getting_started.md
     - Common Errors: common_errors.md
 theme: 
