@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../getting_started/">
+        <link rel="prev" href="..">
       
+      
+        <link rel="next" href="../getting_started/">
       
       
       <link rel="icon" href="../img/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Common Errors - Intro to GIS Survival Guide</title>
+        <title>Accessing GIS outside of class - Intro to GIS Survival Guide</title>
       
     
     
@@ -60,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#common-errors" class="md-skip">
+        <a href="#how-to-access-arcgis-outside-the-classroom" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Common Errors
+              Accessing GIS outside of class
             
           </span>
         </div>
@@ -205,10 +207,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../apporto/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -218,6 +229,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -247,29 +259,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Common Errors
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../common_errors/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -279,33 +272,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#common-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Errors
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -327,23 +293,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#common-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Errors
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -359,12 +310,23 @@
 
 
 
-  <h1>Common Errors</h1>
-
-<h2 id="common-errors">Common Errors</h2>
-<p>Where did my pane go?</p>
-<p><img alt="Restoring Panes" src="../img/panes.png" /></p>
-<p>We can always get different panes back (table of contents/catalog) by going to View &gt; Reset Panes &gt; Reset Panes for Mapping</p>
+<h1 id="how-to-access-arcgis-outside-the-classroom">How to access ArcGIS outside the classroom</h1>
+<h1 id="on-apporto-cunys-virtual-lab">On Apporto - CUNY's Virtual Lab:</h1>
+<p>Navigate to cuny.apporto.com/home and log in with your cuny login credentials. </p>
+<p><img alt="Pro Launch" src="../img/arcpro_launch.png" /></p>
+<p>This will open a windows virtual environment in your browser (mac friendly). I would recommend making the window fullscreen. </p>
+<p>Depending on your starting point, you can either continue working on existing work by downloading the working files from dropbox, or, if starting a new project - I would recommend setting up a working folder on the U drive. Remember, any additional files you want to download/accessing your dropbox in the browser, must be done in the browser within Apporto (this is easier if window is full screen).</p>
+<p><img alt="u drive" src="../img/udrive.png" /></p>
+<p>If you are continuing previous work, you will navigate to your dropbox in the browser. </p>
+<p><img alt="dropbox" src="../img/dropbox.png" /></p>
+<p>This is why folder organization can come in handy, because all the input files associated with a specific project (shps, csvs, etc.) will be stored in the same place, in addition to the .aprx file (opens the map) and all other various outputs in default geodatabase.</p>
+<p>For example, if I wanted to continue working on class_2_demo, a working folder I had backed up in its entirely from a lab computer - I can simply download the entire folder to my U drive in the Apporto environment. It will zip the entire working folder.</p>
+<p><img alt="download" src="../img/download_folder.png" /></p>
+<p>After extracting, you will have a working environment that looks familiar. Remember we can just double click the .aprx file (has map icon) and it will fire up the map in ArcGIS Pro, as well as maintain the connection to all source files. </p>
+<p><img alt="file" src="../img/filetree.png" /></p>
+<p><img alt="catalog" src="../img/catalog_connection.png" /></p>
+<p>To save the current work and back up again (same directions apply for work you are doing on a lab computer and want to back up to dropbox), make sure you save and close your map. We need to close the map before we back up any files to ensure none of the files have locks on them. Back in dropbox, under your folder for the course, select upload, and folder. Navigate to the working folder and select upload (make sure you select the entire folder, not just files within it)</p>
+<p><img alt="folder_upload" src="../img/folder_upload.png" /></p>
 
 
 

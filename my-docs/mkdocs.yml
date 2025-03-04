@@ -3,7 +3,12 @@ nav:
     - Home: index.md
     - Accessing GIS outside of class: apporto.md
     - Getting Started: getting_started.md
+    - Getting Data: getting_data.md
     - Common Errors: common_errors.md
+    - Symbolizing Data: symbolizing_data.md
+    - Project Tool: project_tool.md
+    - Calculating Fields: calculating_fields.md
+    - Select by Attribute: select_by_att.md
 theme: 
     name: material
     favicon: img/favicon.png
