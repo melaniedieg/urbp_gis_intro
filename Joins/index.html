@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../common_errors/">
+        <link rel="prev" href="../select_by_att/">
       
-      
-        <link rel="next" href="../project_tool/">
       
       
       <link rel="icon" href="../img/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Symbolizing Data - Intro to GIS Survival Guide</title>
+        <title>Joins - Intro to GIS Survival Guide</title>
       
     
     
@@ -62,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#symbolizing-data" class="md-skip">
+        <a href="#joins-with-linknyc-kiosk-locations" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Symbolizing Data
+              Joins
             
           </span>
         </div>
@@ -291,19 +289,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../symbolizing_data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -313,7 +302,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -406,10 +394,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Joins/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -419,6 +416,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -457,40 +455,76 @@
 
 
 
-<h1 id="symbolizing-data">Symbolizing Data</h1>
-<p>Once our data is in ArcGIS Pro, the software provides several symbolization methods for feature layers. In choosing our symbology scheme we want to consider the objective of our map, the format of our data, and the attribute data available to us. We also want to think about features we may choose not to symbolize or make sense to filter out of our dataset based on the symbology scheme we choose (ex. Park geographies in NTA file that each have have cumulative statistics, Census data with a value of 0)</p>
-<h1 id="primary-symbologies-in-arcgis-pro">Primary Symbologies in ArcGIS Pro</h1>
-<ol>
-<li>Single Symbol: Draw all features in a layer with a common symbol</li>
-<li>Unique Values: Apply a different symbol to each category of featres within the layers based on one or more fields. </li>
-<li>Graduated colors: Show quantiative differences in features values with a range of colors.</li>
-<li>Graduated symbols: Show quantiative differences in feature values with varying symbol sizes. </li>
-<li>Bivariate colors: Use graduated colors to show quantitative differences in feature layers between two fields.</li>
-<li>Unclassed colors: Show quantitative differences in feature values with a range of colors not broken into discrete classes.</li>
-<li>Proportional Symbology: Represent quantitative values as a series of unclassed, proportionally sized symbols.</li>
-<li>Dot density: Draw quantities as point symbols distributed within polygons. This method is only available for polygon features.</li>
-<li>Charts: Draw quantities from multiple fields using chart symbols.</li>
-<li>Heat map: Draw the density of points as a continuous color gradient.</li>
-<li>Dictionary: Apply symbols to data using multiple attributes.</li>
-</ol>
-<h1 id="looking-at-our-nta-population-file-from-2010-2020-as-an-example">Looking at our NTA Population file from 2010 - 2020 as an example:</h1>
-<p>To start, we can either right click on our feature layer in the table of contents and select symbology, or use the feature layer menu in the top ribbon and navigate to symbology. </p>
-<p>Under the primary symbology drop down we can select a scheme. Here we see the default single symbol, showing all features the same way.</p>
-<p><img alt="Single Symbol" src="../img/single_symbol.png" /></p>
-<p>If we wanted to symbolize our data by a qualitative field in our data (ex. categories, names) we could use Unique values, and select which field in our data we want to symbolize. These colors don't tell us anything about the data other than it is different. </p>
-<p><img alt="Unique Values" src="../img/unique_values.png" /></p>
-<p>We want to keep in mind that categorical data is sometimes stored in a number format. For example in this data there is a field called boro_code, which even though is a number, does not indicate anything quantiative about the borough it represents. Here I've used graduated colors to symbolize boro_code. The result is an identical map to a unique value scheme by borough name. </p>
-<p><img alt="Graduated Colors Incorrect" src="../img/grad_colors_name.png" /></p>
-<p>To correctly use graduated colors, we would want to apply it to a field in our data that actually represents quantitative data. Let's try it on the Total_Popu field, which is the population in 2010. </p>
-<p><img alt="Graduated Colors Correct" src="../img/grad_colors_cor.png" /></p>
-<p>With graduated colors Pro will apply a classification method. Natural Breaks is typically appropriate because it takes into account the statistical distribution of your data. Quantile will divide your data into five equal classes. Standard deviation assumes your data is normally distributed and will show symbolization relative to the distance away from the mean of the data. Depending on what you want to show you may also want to set the breaks manually as well. For more finished work you will want to give some thought to your classification method in relation to the objective of your map, and make sure you have a legend with the breaks available.</p>
-<p>We also see the option for Normalization, which divides the data by that field. This could be useful if you wanted to symbolize population in relation to area, or total cases of something per the population.</p>
-<p>With polygon fields we can also use the dot density scheme. Here is the same 2010 field in that format. Here, one dot is representing 500 people.</p>
-<p><img alt="Dot Density" src="../img/dot_density.png" /></p>
-<p>We can use graduated symbols for point data. </p>
-<p><img alt="Graduated Symbols" src="../img/grad_symbols.png" /></p>
-<p>If you want to use graduated colors and symbols, I would recommend setting the primary symbology as graduated colors, and then on the vary symbology by attribute tab, selecting size. Here I am setting both to the same field (summons rate) but these could be separate fields in your data as well. </p>
-<p><img alt="Size and Color" src="../img/size_and_color.png" /></p>
+<h1 id="joins-with-linknyc-kiosk-locations">Joins with LinkNYC kiosk locations.</h1>
+<p>We will examine how we can get a count of link kiosks per zip code - with either a tabular of spatial join. All of this data used here can be found in the Link NYC folder in brightspace.</p>
+<h1 id="tabular-joins">Tabular Joins</h1>
+<p>Remember for tabular joins, we want each geographic identifier, (census tract id, zip code, etc.) to only appear in our data once. This is because the software will automatically join the data from the first time it finds a match - so if your data is not aggregated, your join will run without error, but will be completely wrong.</p>
+<h1 id="for-example-in-this-link-dataset-in-the-raw-form-we-see-each-zip-code-appears-more-than-once-this-makes-sense-as-this-data-is-the-location-of-each-kiosk-and-we-can-assume-there-are-zip-codes-that-contain-more-than-one">For example in this Link dataset in the raw form, we see each zip code appears more than once. This makes sense, as this data is the location of each kiosk, and we can assume there are zip codes that contain more than one.</h1>
+<p><img alt="Data Duplicates" src="../img/data_doubles.png" /></p>
+<p>But, to use this data in a tabular join, we need to use it as structured in the zip_counts.csv, already aggregated by count. Now, there are a few ways we can get the data in this format if it wasn't already structured this way. </p>
+<h2 id="1-pivot-table">1. Pivot Table</h2>
+<p>If you are familiar with Excel, you can preprocess the data with a Pivot table. In this case, we are grouping by the zip field, with a count of each time it appears in the dataset. </p>
+<p>First you will highlight the entire range of data, and navigate to Insert &gt; Pivot Table</p>
+<p><img alt="Pivot" src="../img/pivot_table.png" /></p>
+<p>Select Table/Range and then accept the highlighted range.</p>
+<p><img alt="Table Range" src="../img/table_range.png" /></p>
+<p>From the Pivot Table menu, Select the Postcode field (Zip) for Row field, and the Count of Postcode for the Value field.</p>
+<p><img alt="Pivot Post" src="../img/pivot_post.png" /></p>
+<p>Then you could copy this data into a separate csv, and pull into GIS.</p>
+<h2 id="2-within-pro">2. Within Pro</h2>
+<p>We can also use the Summary Statistics tool to aggregate our data in a format that it could be used in a tabular join. </p>
+<p>To do so, we would pull the unaggregated data in Pro as a csv, and then export as a Table object.</p>
+<p><img alt="Link Table" src="../img/link_table.png" /></p>
+<p>The from the attribute table, we can right-click on the Postcode field and select summarize, and fill out the fields to get a count of each time zip appears. Think about how if we wanted to aggregate on a different geographic field in the data we could select that, or a different aggregation method such as sum or average.</p>
+<p><img alt="Zip Count" src="../img/postcode_sum_stats.png" /></p>
+<p>Then we would similarly have a table with a count of each time a zip code appears in our data.</p>
+<p><img alt="Zip Count 2" src="../img/zip_count.png" /></p>
+<h2 id="3-with-python-in-google-colab-using-groupby">3. With Python in Google Colab (Using Groupby)</h2>
+<p>You can also review the exploring lodes and lab 6 processing notebook files for more groupby examples. But if you were starting from scratch, you would navigate to www.colab.researh.google.com, and open a new notebook.</p>
+<p>Remember our first step is to import the packages we will need. For this operation, we will just need to import the pandas library.</p>
+<p>import pandas as pd</p>
+<p><img alt="Pandas" src="../img/pandas.png" /></p>
+<p>Then, we need to get our data into the notebook. Remember Google Colab has a unique way of doing this. The syntax is:</p>
+<p>from google.colab import files
+uploaded = files.upload()</p>
+<p>This will open a dialog where you can navigate to the unaggregated link kiosk data.</p>
+<p><img alt="File Import" src="../img/file_import.png" /></p>
+<p>Now we will convert the raw csv we imported into the Colab environment into a pandas dataframe. The syntax is:</p>
+<p>unaggregated_link = pd.read_csv('LinkNYC_Map.csv')</p>
+<p>Now, all we need to do is run a groupby operation that groups by Postcode, and aggregates them as a count. They syntax is:</p>
+<p>aggregated_link = unaggregated_link.groupby('Postcode').size()</p>
+<p>And then we can similarly export our csv out with the colab option. The syntax is:</p>
+<p>from google.colab import files
+aggregated_link.to_csv('aggregated_link.csv', index=False)
+files.download('aggregated_link.csv')</p>
+<p>And then we can do the join on that file in Pro. If you want the link to this entire notebook it is here: <a href="https://colab.research.google.com/drive/1N8LhML2YOJSUBGxKP-OXjouxMUlJ6eWV?usp=sharing">link</a></p>
+<h2 id="luckily-i-had-already-aggregated-the-data-for-you-in-the-csv-zip_countscsv">Luckily, I had already aggregated the data for you in the csv, zip_counts.csv</h2>
+<p>So however we aggregated our data - now we can do the tabular join.</p>
+<p>First we pull in our spatial file and csv into a new project. In this scenario the geography would be the zip code shapefile, because that is the level our data is aggregated at.</p>
+<p><img alt="Zip Prep" src="../img/zip_prep.png" /></p>
+<p>Then we should export both our csv and shapefile to the geodatabase, so we are dealing with a table and feature class.</p>
+<p>The two main things we need for a tabular join are a shared field and for that field to be stored in the same data type. In our spatial file this is ZIPCODE, which is stored as text, and in our table this is zip, which is stored as Long. We will create a new text field in our tabular data, populate with the values of 'zip' and then complete the merge. </p>
+<p>First within the fields menu we will create a new field and call it something like zip_text. Make sure you set the data type to text. </p>
+<p><img alt="New Field" src="../img/new_field.png" /></p>
+<p>When we have our empty field, we will right-click and select Calculate Field. We just need to set zip_text to the values of zip and press Apply.</p>
+<p><img alt="Calculate Field" src="../img/calc_field.png" /></p>
+<p>Now we have what we need to complete the Join. We will right-click on our spatial file and select Joins and Relates &gt; Add Join. Fill out as follows:</p>
+<p><img alt="Add Join" src="../img/add_join.png" /></p>
+<p>We want to select the Validate option first, so we can see the results of the join, but rememeber we still have to press OK for the join to actually run. Here we see there are 109 zip codes in the tabular data that matched to our zip code spatial file. This makes sense because link nyc kiosks are not in every zip code.</p>
+<p><img alt="Validate" src="../img/validate.png" /></p>
+<p>After we run the join, we can see our tabular data linked to our spatial data in the attribute table. We could then symbolize by the count field to have a visual representation of how many kiosks are in each zip code.</p>
+<p><img alt="Joined Data" src="../img/joined_data.png" /></p>
+<p><img alt="Zip Join" src="../img/zip_joined_data.png" /></p>
+<h2 id="spatial-joins">Spatial Joins</h2>
+<p>We can demonstrate the spatial join process with the unaggregated zip code data. </p>
+<p>First we want to convert our kiosk tabular data to a spatial file. Since this data has coordinates we will run the XY to Point tool. Each point is one Link kiosk.</p>
+<p><img alt="Points" src="../img/points.png" /></p>
+<p>The spatial join will be doing the work of aggregating each point into our zip code polygons, based on the spatial relationship we choose. </p>
+<p>Right-click on our zip code spatial file &gt; Joins and Relates &gt; Add Spatial Join. Fill out as follows. </p>
+<p><img alt="Spatial Join" src="../img/spatial_join.png" /></p>
+<p>In the fields menu, we will see all fields from our point data that are set to be joined on to our zip code data. If we wanted to simplify what our output looks like, we could Remove them.</p>
+<p>The critical field for us in this type of spatial join is a default field called Join_Count. This will show a count of all the features that were within that zip code. We could then symbolize by this field and see similar results to our tabular join output.</p>
+<p><img alt="Join Complete" src="../img/join_complete.png" /></p>
 
 
 
