@@ -10,6 +10,7 @@ nav:
     - GPX Data: gpx.md
     - Calculating Fields: calculating_fields.md
     - Select by Attribute: select_by_att.md
+    - Joins: Joins.md
 theme: 
     name: material
     favicon: img/favicon.png
